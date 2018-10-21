@@ -48,6 +48,10 @@ int main(int argc, char * argv[])
 
 	while(fgets(sendbuf, sizeof(sendbuf), stdin) != NULL)
 	{
+		if(strncmp(sendbuf, "quit",4) == 0)
+		{
+			break;
+		}
 		write(socketfd, sendbuf, strlen(sendbuf));
 
 		int ret = read(socketfd, recvbuf, sizeof(recvbuf));
@@ -56,6 +60,7 @@ int main(int argc, char * argv[])
 		{
 			break;
 		}
+
 
 
 
